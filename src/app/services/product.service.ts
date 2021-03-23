@@ -1,16 +1,24 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-private _api=`http://localhost:3000/api`
+public _api=environment.api_url
   constructor(private _http:HttpClient) { }
+
 
   //get all products
   getAllProducts(){
-    return this._http.get<any>(this._api+`${'/allProducts'}`)
+    let headers= new HttpHeaders({
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Methods':'GET ',
+      'Access-Control-Allow-Headers':'application/json application/image',
+    })
+    
+    return this._http.get<any>(this._api+`${'/allProducts'}`,{headers})
   }
 
 

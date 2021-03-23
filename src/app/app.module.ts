@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AuthService } from './services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { TestDataComponent } from './components/test-data/test-data.component';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { NgAisModule } from 'angular-instantsearch';
@@ -25,7 +24,6 @@ import { ProductService } from './services/product.service';
     LoginComponent,
     HomeComponent,
     HeaderNavComponent,
-    TestDataComponent,
     ProductsComponent
   ],
   imports: [

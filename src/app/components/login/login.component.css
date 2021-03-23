@@ -1,6 +1,6 @@
 
 
-.card{
+.main_content{
     border: 0ch;
     box-shadow: none;
      width: 500px; 
@@ -10,10 +10,41 @@
     transform: translate(-50%,-50%);
     font-size: 0.9em;
 }
-.title{
-    margin-top: 12px ;
-    margin-left: 25px;
-    font-size: 0.9em;
+
+.panel-login {
+    border-color: #ccc;
+    padding-top: 90px;
+	/* -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2); */
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: orange;
+	font-size: 18px;
+
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+  border-bottom:2px solid orange;
 }
 
 .form-input{
@@ -23,26 +54,24 @@ font-size: 1.1em;
 padding: 3px;
 }
 
-.form-input input{
-    width: 100%;
+
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	 width: 100%;
     border: 0;
     box-shadow: none;
     outline: none;
     border-bottom: 1px solid gray;
 }
-
-.links-forgot{
-    text-align: right;
-    font-size: 0.9em;
-    padding: 3px;
-    cursor: pointer;
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
 }
-.links-forgot a {
-    text-decoration: none;
-    cursor: pointer;
-}
-.form-btn button[type="submit"]{
-    width: 100%;
+.btn-login {
+	 width: 100%;
     background-color: orange;
     display: block;
     box-shadow: none;
@@ -55,11 +84,48 @@ padding: 3px;
     letter-spacing: 1px;
     cursor: pointer;
 }
-.form-btn button[type="submit"]:hover
-{
-    background: rgb(245, 172, 38);
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+.forgot-password {
+	text-decoration: none;
+	
+  float:right;text-align: right;
+    font-size: 0.9em;
+    padding: 3px;
+    cursor: pointer;
+  
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	 
+  text-decoration:none;
+}
+
+.btn-register {
+	 width: 100%;
+    background-color: orange;
+    display: block;
+    box-shadow: none;
+    padding: 10px 5px ;
+    color: #fff;
+    text-transform: uppercase;
+    outline: none;
+    border: 0;
+    font-weight: bolder;
+    letter-spacing: 1px;
     cursor: pointer;
 }
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}
+
 .seperator{
   text-align: center;
   margin-top: 15px;

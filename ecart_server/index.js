@@ -7,61 +7,39 @@ const bodyparser = require('body-parser');
 const fetch = require('node-fetch');
 const algoliasearch = require('algoliasearch');
 const client = algoliasearch(process.env.APP_KEY, process.env.ADMIN_KEY)
-const index = client.initIndex('products')
+const index = client.initIndex('products');
+const path = require('path')
+const productRoute = require('./src/routes/product.route');
 
 //middlewares
-
 app.use(cors());
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({
-  extended: false
-}));
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(express.static(path.join(__dirname,'public')));
+app.use(function (req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,PATCH, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Origin, Authorization, x-access-token, Content-Length, X-Requested-With,Content-Type,Accept");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
+
+
+    next();
+});
 
 //routing
 
-app.get('/api/allProducts', (request, response) => {
-  let url = `https://fakestoreapi.herokuapp.com/products`
-  fetch(url).then((response) => {
-      return response.json();
-    }).then((products) => {
-    //    console.log(result);
-        return res.send(products)
-    })
-    .catch((error) => {
-      console.log('Error While getting Data', error);
-      return response.send(error)
-    })
-    index.saveObject(this.result,{autoGenerateObjectIDIfNotExist: true},function(err,content){
-        if(err){
-            console.log(err);
-        }
-    })
-})
-app.get('/search', (request, response) => {
-  const query = request.body.query;
+app.use('/api',productRoute)
 
-  index.search(query)
-    .then(({
-      hits
-    }) => {
-    //   console.log(hits);
-      return res.send(hits)
-    }).catch(
-      error => {
-        // console.log(error);
-        response.send(error)
-      }
-    )
-
-})
 
 //server listining
-app.listen(config.server.PORT, (request,response)=>{
-    if(config.server.HOST !='localhost' && config.server.HOST != '0.0.0.0')
+app.listen(process.env.PORT, (request,response)=>{
+    if(process.env.HOST !='localhost' && process.env.HOST != '0.0.0.0')
     {
-        console.log(`Express server listening on http://${config.server.HOST}:${config.server.PORT}`);
+        console.log(`Express server listening on http://${process.env.HOST}:${process.env.PORT}`);
     } else {
-        config.server.HOST ='localhost';
-        console.log(`Express server listening on http://${config.server.HOST}:${config.server.PORT}`);
+        process.env.HOST ='localhost';
+        console.log(`Express server listening on http://${process.env.HOST}:${process.env.PORT}`);
     }
 });

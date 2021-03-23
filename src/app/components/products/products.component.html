@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-6 col-lg-12">
         <div class="card w-25 " *ngFor="let p of allProducts">
-            <img class="card-img " width="150px" height="150px" src="{{p.image}}" alt="product name">
+            <img class="card-img " width="150px" height="150px" src="p.image" alt="product name">
             <div class="card-body">
               <h4 class="card-title">{{p.title}}</h4>
               <p class="card-text d-none">

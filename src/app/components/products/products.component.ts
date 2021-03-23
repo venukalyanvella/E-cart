@@ -7,8 +7,10 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+  public ImgUrl='';
   allProducts:any=[];
+
+
   constructor(private _productService:ProductService) { }
 
   ngOnInit() {
@@ -19,7 +21,6 @@ export class ProductsComponent implements OnInit {
     this._productService.getAllProducts().subscribe((products)=>{
       // console.log(products);
       this.allProducts = products
-      
     },
     (error)=>{
       console.log('Error While Getting Products',error);

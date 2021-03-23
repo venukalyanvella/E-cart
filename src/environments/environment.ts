@@ -6,15 +6,18 @@ export const environment = {
   production: false,
  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 firebaseConfig : {
-  apiKey: process.env.APIKEY,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket:process.env.storageBucket ,
-  messagingSenderId:process.env.messagingSenderId,
-  appId: process.env.appId,
-  measurementId:process.env.measurementId
-}
+  apiKey:'AIzaSyAzhGz0y8FVShggGUspzbHIpOByow0bEIs',
+  authDomain:'ecart-77ae5.firebaseapp.com',
+  projectId: 'ecart-77ae5',
+  storageBucket:'ecart-77ae5.appspot.com' ,
+  messagingSenderId:'261938981091',
+  appId:'1:261938981091:web:2fc5ff99f443f420f23dd6',
+  measurementId:'G-FZNNHQYPT4'
+},
+api_url:'https://ecart-demo-sample.herokuapp.com/api'
+
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

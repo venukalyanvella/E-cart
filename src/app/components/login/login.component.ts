@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   email: any = '';
   password: any = '';
   @ViewChild('userForm', { static: true }) userForm: NgForm;
+  @ViewChild('userRegister',{static:false}) registerForm:NgForm;
   User: SocialUser;
 
   constructor(
@@ -26,7 +27,26 @@ export class LoginComponent implements OnInit {
     public toastr: ToastrManager,
     public _socialAuthService: SocialAuthService,
     public _AngularFire:AngularFireAuth
-  ) { }
+  ) {
+    $(function() {
+
+      $('#login-form-link').click(function(e) {
+      $("#login-form").delay(100).fadeIn(100);
+       $("#register-form").fadeOut(100);
+      $('#register-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+    $('#register-form-link').click(function(e) {
+      $("#register-form").delay(100).fadeIn(100);
+       $("#login-form").fadeOut(100);
+      $('#login-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+  
+  });
+   }
 
   ngOnInit() {
     // ===================== FACEBOOK AUTHENTICATION CODE ====================
@@ -85,14 +105,42 @@ export class LoginComponent implements OnInit {
     this._AngularFire.signInWithEmailAndPassword(email,password).then(
       (user)=>{
         console.log('Get user details ', user);
+        this.userForm.reset()
+        this.email='';
+        this.password='';
         this.toastr.successToastr('Login Successfull');
         this.router.navigate(['/home'])
         
       })
       .catch((error:any)=>{
         console.log('Error while Login ', error);
+        this.userForm.reset()
+        this.email='';
+        this.password='';
         this.toastr.errorToastr('Error While Login with Email/Password');        
       })
 
   }
+
+  signupWithEmailAndPassword(email:any,password:any){
+    this._AngularFire.createUserWithEmailAndPassword(email,password).then(
+      (user)=>{
+        // console.log('Get user details ', user);
+        this.email='';
+        this.password='';
+        this.registerForm.reset()
+        this.toastr.successToastr('Register Successfull');
+        this.router.navigate(['/login'])
+        
+      })
+      .catch((error:any)=>{
+        // console.log('Error while Register ', error);
+        this.email='';
+        this.password='';
+        this.registerForm.reset()
+        this.toastr.errorToastr('Error While Register with Email/Password');        
+      })
+  }
+
+
 }
