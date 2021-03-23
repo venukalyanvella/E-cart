@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card ">
+    <div class="title">
+      - Login/Sign up
+    </div>
+    <div class="card-body">
+      <h4> Login</h4>
+      <form class="form-box" #userForm="ngForm">
+        <div class="form-input">
+          <input type="text" id="name" name="email" [(ngModel)]="email" required placeholder="Phone Number or Email">
+        </div>
+        <div class="form-input">
+          <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password" required>
+        </div>
+        <div class="links-forgot">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <div class="form-btn">
+          <button type="submit" [disabled]="!userForm.valid" (click)="signinWithEmailAndPassword(email,password)">Login</button>
+        </div>
+
+        <div class="seperator">
+          Or
+        </div>
+        <br>
+        <div class="smsbtn">
+          <button type="submit">Login with SMS</button>
+        </div>
+        <div class=" social-media-btn">
+          <button class="btn btn-primary facebook-btn" (click)="signInWithFacebook()">Facebook</button>
+          <button class="btn btn-success google-btn" (click)="signInWithGoogle()">Google</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

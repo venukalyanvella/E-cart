@@ -1,0 +1,129 @@
+
+
+.card{
+    border: 0ch;
+    box-shadow: none;
+     width: 500px; 
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    font-size: 0.9em;
+}
+.title{
+    margin-top: 12px ;
+    margin-left: 25px;
+    font-size: 0.9em;
+}
+
+.form-input{
+    display: block;
+margin-bottom: 25px;
+font-size: 1.1em;
+padding: 3px;
+}
+
+.form-input input{
+    width: 100%;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+}
+
+.links-forgot{
+    text-align: right;
+    font-size: 0.9em;
+    padding: 3px;
+    cursor: pointer;
+}
+.links-forgot a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.form-btn button[type="submit"]{
+    width: 100%;
+    background-color: orange;
+    display: block;
+    box-shadow: none;
+    padding: 10px 5px ;
+    color: #fff;
+    text-transform: uppercase;
+    outline: none;
+    border: 0;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.form-btn button[type="submit"]:hover
+{
+    background: rgb(245, 172, 38);
+    cursor: pointer;
+}
+.seperator{
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+  top: 5;
+  font-size: 0.7em;
+}
+
+.seperator::before{
+    content: '';
+    display: block;
+    width:44%;
+    height: 2px;
+    background: rgb(153, 153, 153);
+    left: 0;
+    top: 70%;
+    position: absolute;
+}
+
+.seperator::after{
+    content: '';
+    display: block;
+    width:44%;
+    height: 2px;
+    background: rgb(153, 153, 153);
+   right: 0;
+    top: 70%;
+    position: absolute;
+}
+
+.smsbtn button[type="submit"] {
+    width: 100%;
+     background-color: #fff; 
+    border: 1px solid orange;
+    display: block;
+    box-shadow: none;
+    padding: 10px 5px ;
+    color: orange;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+.smsbtn button[type="submit"]:hover{
+    background: orange;
+    color: #fff;
+    cursor: pointer;
+}
+.social-media-btn{
+   
+    display: inline-block;
+  width:auto;
+ display: flex;
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: #fff;
+   
+}
+
+.social-media-btn .facebook-btn{
+    width: 100%;
+margin-right: 15px;
+}
+.social-media-btn .google-btn{
+    width: 100%;
+    margin-left: 15px;
+}
